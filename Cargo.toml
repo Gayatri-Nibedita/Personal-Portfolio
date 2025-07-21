@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/personal-portfolio-backend"
+]
+resolver = "2"
