@@ -1,30 +1,83 @@
-import { useState } from 'react';
-import { personal_portfolio_backend } from 'declarations/personal-portfolio-backend';
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss';
+
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import About from './components/About';
+import Contact from './components/Contact';
+import ParticleBackground from './components/ParticleBackground';
+import ThemeToggle from './components/ThemeToggle';
+import Projects from './components/Projects';
+import Experience from './components/Experience';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    personal_portfolio_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
     });
-    return false;
-  }
+    
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === "light") {
+      setIsDarkMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.className = isDarkMode ? 'dark-theme' : 'light-theme';
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <div className={`app ${isLoaded ? 'loaded' : ''}
+${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
+      <Navigation isDark={isDarkMode} />
+      <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
+      <ParticleBackground />
+      <Hero />
+      <About />
+      <Projects />
+      <Experience />
+      <Contact />
+
+      {/* Footer */}
+      <footer className="footer-section">
+        <Container>
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <p className="mb-0 text-muted">© 2025 S. Gayatri Nibedita. All rights reserved.</p>
+            </div>
+            <div className="col-md-6 text-md-end">
+              <div className="tech-badges">
+                <span className="tech-badge react">React</span>
+                <span className="tech-badge js">JavaScript</span>
+                <span className="tech-badge bootstrap">Bootstrap</span>
+                <span className="tech-badge aos">AOS</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </footer>
+    </div>
   );
 }
 
