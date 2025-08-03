@@ -6,9 +6,9 @@ const About = () => {
   const highlights = [
     {
       icon: 'fas fa-code',
-      title: '2',
+      title: '3+',
       description: 'Projects Completed',
-      color: 'black'
+      color: 'danger'
     },
     {
       icon: 'fas fa-award',
@@ -60,7 +60,7 @@ const About = () => {
         </Row>
 
         {/* Highlights */}
-        <Row className="mb-5">
+        <Row className="mb-5 justify-content-center">
           {highlights.map((highlight, index) => (
             <Col lg={3} md={6} key={index} className="mb-4">
               <Card 

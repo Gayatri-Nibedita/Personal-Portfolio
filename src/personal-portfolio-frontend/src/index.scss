@@ -22,6 +22,12 @@
   --border-radius: 0.75rem;
   --transition: all 0.3s ease;
 
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --background-light: #ffffff;
+  --card-bg: #f8fafc;
+
+
  /* Dark Theme Variables */
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -61,11 +67,21 @@ body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
   color: var(--text-primary);
+  background-color: var(--background-light);
   line-height: 1.6;
   overflow-x: hidden;
   scroll-behavior: smooth;
   transition: all 0.3s ease;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, span, li {
+  color: var(--text-secondary);
+}
+
 
 /* Theme Toggle */
 .theme-toggle-container {
@@ -806,7 +822,7 @@ html {
 
 .projects-section {
   padding: 4rem 0;
-  background: var();
+  background: var(--bg);
   
 }
 
@@ -831,7 +847,7 @@ html {
   backdrop-filter: blur(10px);
   overflow: hidden;
   position: relative;
-  color: var(--text-secondary);
+  color: var(--pill-text);
 }
 
 .project-card:hover {
@@ -910,38 +926,113 @@ html {
 
 /* Experience Section */
 .experience-section {
-  background: var();
-  padding: 4rem 0;
+  padding: 5rem 2rem;
+  background: var(--bg);
+  color: var(--text-primary);
+  position: relative;
+
+  .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    background: var(--text-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    padding-left: 2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: var(--gradient-primary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 60px;
+
+      .timeline-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--box-shadow);
+        z-index: 10;
+      }
+
+      .timeline-content {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        position: relative;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          border: 1px solid var(--border-color);
+          box-shadow: var(--box-shadow-hover);
+        }
+
+        h4 {
+          margin-bottom: 0.2rem;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+
+        .company {
+          font-size: 1rem;
+          color: var(--text-secondary);
+        }
+
+        .date {
+          font-size: 0.8rem;
+          font-style: italic;
+          color: var(--pill-text);
+        }
+
+        p {
+          margin-top: 0.6rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
 
-.border-gradient {
-  border: 1px solid;
-  border-image: linear-gradient(to right, #6a11cb, #2575fc) 1;
-  border-radius: 15px;
-}
-
-.glass-card {
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  transition: all 0.3s ease-in-out;
-}
-
-.text-gradient {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 
 
 /* Certificate Upload Section */
 
 
+
 /* Contact Section */
 .contact-section {
-  padding: 6rem 0;
-  background: var();
+  padding: 4rem 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .contact-card {
@@ -1044,7 +1135,7 @@ html {
 }
 
 .form-control-custom::placeholder {
-  color: var(--text-muted);
+  color: var(--pill-text);
 }
 
 .submit-btn {
@@ -1069,11 +1160,9 @@ html {
 /* Footer */
 .footer-section {
   padding: 3rem 0;
-  background: var();
+  background: var(--bg);
   border-top: 1px solid var(--card-border);
 }
-
-
 
 .tech-badges {
   display: flex;
