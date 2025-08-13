@@ -45,19 +45,6 @@ const Contact = () => {
       }
     );
 };
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setShowAlert(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 5000);
-    }, 2000);
-  };
-
   const contactInfo = [
     {
       icon: 'fas fa-envelope',
@@ -279,6 +266,6 @@ const Contact = () => {
       </Container>
     </section>
   );
-;
+};
 
 export default Contact;
