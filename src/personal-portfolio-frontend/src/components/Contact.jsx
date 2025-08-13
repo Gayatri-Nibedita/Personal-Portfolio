@@ -6,7 +6,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   const [showAlert, setShowAlert] = useState(false);
@@ -25,15 +24,15 @@ const Contact = () => {
     emailjs
     .send(
       "service_vwnvcs8",    // from EmailJS dashboard
-     // "YOUR_TEMPLATE_ID",   // from EmailJS template
+      "template_lkpy779",   // from EmailJS template
       formData,             // your state object
-     // "YOUR_PUBLIC_KEY"     // from EmailJS account
+      "uWoZqEeJopATvQ5wd"     // from EmailJS account
     )
     .then(
       (result) => {
         setIsSubmitting(false);
         setShowAlert(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', message: '' });
 
         setTimeout(() => {
           setShowAlert(false);
@@ -212,18 +211,6 @@ const Contact = () => {
                     </Col>
                   </Row>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Subject</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder=""
-                      required
-                      className="form-control-custom"
-                    />
-                  </Form.Group>
 
                   <Form.Group className="mb-4">
                     <Form.Label>Message</Form.Label>
