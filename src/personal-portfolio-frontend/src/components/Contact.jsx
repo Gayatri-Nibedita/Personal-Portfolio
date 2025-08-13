@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +22,29 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    emailjs
+    .send(
+      "service_vwnvcs8",    // from EmailJS dashboard
+     // "YOUR_TEMPLATE_ID",   // from EmailJS template
+      formData,             // your state object
+     // "YOUR_PUBLIC_KEY"     // from EmailJS account
+    )
+    .then(
+      (result) => {
+        setIsSubmitting(false);
+        setShowAlert(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 5000);
+      },
+      (error) => {
+        setIsSubmitting(false);
+        alert("Failed to send message. Please try again later.");
+      }
+    );
+};
     
     // Simulate form submission
     setTimeout(() => {
@@ -89,7 +113,7 @@ const Contact = () => {
               Let's <span className="gradient-text">Connect</span>
             </h2>
             <p className="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-              Ready to discuss next blockchain project? Let's bring your vision to life
+              Ready to discuss next project? Let's bring your vision to life.
             </p>
           </Col>
         </Row>
@@ -100,7 +124,7 @@ const Contact = () => {
             <div data-aos="fade-right">
               <h3 className="mb-4">Get in Touch</h3>
               <p className="mb-4">
-                I'm always excited to collaborate on innovative blockchain projects and discuss 
+                I'm always excited to collaborate on innovative projects and discuss 
                 the latest developments. Feel free to reach out through any of the channels below.
               </p>
 
@@ -255,6 +279,6 @@ const Contact = () => {
       </Container>
     </section>
   );
-};
+;
 
 export default Contact;

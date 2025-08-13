@@ -14,5 +14,8 @@
   "type": "module",
   "workspaces": [
     "src/personal-portfolio-frontend"
-  ]
+  ],
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
+  }
 }

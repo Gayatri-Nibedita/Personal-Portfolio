@@ -44,7 +44,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\"",
-    
     "preview": "vite preview",
     "setup": "npm i && dfx canister create personal-portfolio-backend && dfx generate personal-portfolio-backend && dfx deploy",
     "start": "vite --port 3000",
