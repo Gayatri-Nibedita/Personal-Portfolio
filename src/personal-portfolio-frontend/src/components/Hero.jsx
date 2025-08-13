@@ -51,8 +51,6 @@ const Hero = () => {
             <div data-aos="fade-right" data-aos-delay="400">
               <h1 className="hero-title">
                 <span className="name-primary">S. Gayatri Nibedita </span>
-                
-                
               </h1>
             </div>
             
@@ -101,6 +99,10 @@ const Hero = () => {
           </Col>
           
           <Col lg={6} className="hero-image">
+          <div className="dev-tag" data-aos="fade-down" data-aos-delay="300">
+          ⚠ Under Development !
+          </div>
+            
             <div className="profile-container" data-aos="fade-left" data-aos-delay="600">
               <div className="profile-glow"></div>
               <div className="profile-placeholder">

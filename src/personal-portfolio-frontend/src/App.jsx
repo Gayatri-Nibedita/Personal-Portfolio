@@ -64,7 +64,7 @@ ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
         <Container>
           <div className="row align-items-center">
             <div className="col-md-6">
-              <p className="mb-0 text-muted">© 2025 S. Gayatri Nibedita. All rights reserved.</p>
+              <p className="mb-0">© 2024 S. Gayatri Nibedita. All rights reserved.</p>
             </div>
             <div className="col-md-6 text-md-end">
               <div className="tech-badges">
