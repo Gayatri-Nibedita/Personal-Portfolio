@@ -124,18 +124,18 @@ const Hero = () => {
             </div>
           </Col>
         </Row>
-      </Container>
-      
-      <div className="dev-tag" data-aos="fade-right" data-aos-delay="300">
-        ⚠ Under Development !
-      </div>
-      
-      <div className="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
-        <div className="scroll-mouse">
-          <div className="scroll-wheel"></div>
+        
+        <div className="dev-tag" data-aos="fade-down" data-aos-delay="300">
+          ⚠ Under Development !
         </div>
-        <span>explore more</span>
-      </div>
+        
+        <div className="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
+          <div className="scroll-mouse">
+            <div className="scroll-wheel"></div>
+          </div>
+          <span>explore more</span>
+        </div>
+      </Container>
     </section>
   );
 };

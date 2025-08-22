@@ -193,11 +193,10 @@ html {
 }
 
 .dev-tag {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-block;
   background: rgba(251, 191, 36, 0.2);
   color: var(--text-secondary);
@@ -218,11 +217,11 @@ html {
 @keyframes pulseGlow {
   0%, 100% { 
     box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-    transform: translateY(-50%) rotate(-90deg) scale(1);
+    transform: translateX(-50%) scale(1);
   }
   50% { 
     box-shadow: 0 6px 25px rgba(251, 191, 36, 0.5);
-    transform: translateY(-50%) rotate(-90deg) scale(1.05);
+    transform: translateX(-50%) scale(1.05);
   }
 }
 
@@ -734,6 +733,7 @@ html {
   align-items: center;
   color: var(--text-secondary);
   font-size: 0.875rem;
+  z-index: 10;
 }
 
 .scroll-mouse {
@@ -1295,12 +1295,25 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
   .dev-tag {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    transform: none;
+    top: 80px;
     font-size: 0.75rem;
     padding: 6px 12px;
+  }
+  
+  .scroll-indicator {
+    bottom: 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .scroll-mouse {
+    width: 20px;
+    height: 32px;
+  }
+  
+  .scroll-wheel {
+    width: 3px;
+    height: 6px;
+    top: 4px;
   }
   
   .section-title {
@@ -1368,10 +1381,14 @@ html {
 
 @media (max-width: 576px) {
   .dev-tag {
+    top: 70px;
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+  
+  .scroll-indicator {
+    bottom: 0.5rem;
     font-size: 0.7rem;
-    padding: 4px 8px;
-    top: 15px;
-    left: 15px;
   }
   
   .hero-title {
