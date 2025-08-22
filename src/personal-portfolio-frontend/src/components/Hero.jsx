@@ -99,10 +99,6 @@ const Hero = () => {
           </Col>
           
           <Col lg={6} className="hero-image">
-          <div className="dev-tag" data-aos="fade-down" data-aos-delay="300">
-          ⚠ Under Development !
-          </div>
-            
             <div className="profile-container" data-aos="fade-left" data-aos-delay="600">
               <div className="profile-glow"></div>
               <div className="profile-placeholder">
@@ -129,6 +125,10 @@ const Hero = () => {
           </Col>
         </Row>
       </Container>
+      
+      <div className="dev-tag" data-aos="fade-right" data-aos-delay="300">
+        ⚠ Under Development !
+      </div>
       
       <div className="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
         <div className="scroll-mouse">
