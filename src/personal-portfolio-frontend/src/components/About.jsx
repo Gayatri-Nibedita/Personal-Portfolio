@@ -5,6 +5,12 @@ import CountUp from 'react-countup';
 const About = () => {
   const highlights = [
     {
+      icon: 'fas fa-user-tie',
+      title: '1+',
+      description: 'Year of Experience',
+      color: 'info'
+    },
+    {
       icon: 'fas fa-code',
       title: '3+',
       description: 'Projects Completed',

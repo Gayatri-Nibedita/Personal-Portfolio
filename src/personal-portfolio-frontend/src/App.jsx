@@ -13,6 +13,7 @@ import ParticleBackground from './components/ParticleBackground';
 import ThemeToggle from './components/ThemeToggle';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Achievements from './components/Achievements';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -57,6 +58,7 @@ ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
       <About />
       <Projects />
       <Experience />
+      <Achievements />
       <Contact />
 
       {/* Footer */}

@@ -36,7 +36,7 @@ const Hero = () => {
 
   const downloadResume = () => {
     // Replace with actual resume URL
-    window.open('/resume.pdf', '_blank');
+    window.open('/sgn resume.pdf', '_blank');
   };
 
   return (
@@ -75,7 +75,7 @@ const Hero = () => {
               <Button 
                 variant="outline-light" 
                 className="btn-outline-custom mb-3"
-                
+                onClick={() => window.open('https://github.com/Gayatri-Nibedita', '_blank')}
               >
                 View My Work
               
@@ -100,16 +100,15 @@ const Hero = () => {
           
           <Col lg={6} className="hero-image">
           <div className="dev-tag" data-aos="fade-down" data-aos-delay="300">
-          ⚠ Under Development !
+          ⚠️Under Development !
           </div>
             
             <div className="profile-container" data-aos="fade-left" data-aos-delay="600">
               <div className="profile-glow"></div>
               <div className="profile-placeholder">
-                <div className="profile-avatar">
-                  <span className="avatar-initials">GN</span>
-                </div>
-                <p className="upload-image">Upload professional photo here</p>
+                   <img src="/mine.jpg" alt="Profile" className="profile-img" />
+                
+                <p className=""></p>
               </div>
               <div className="floating-elements">
                 <div className="floating-icon" style={{animationDelay: '0s'}}>

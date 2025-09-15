@@ -80,7 +80,19 @@ const ParticleBackground = () => {
             value: 0.5,
           },
           shape: {
-            type: "circle",
+            type: "triangle",
+            image: [
+               {
+                src: "/icons/python.jpeg",
+                width: 40,
+                height: 40,
+              },
+               {
+                src: "/icons/solidity.jpeg",
+                width: 40,
+                height: 40,
+              },
+            ],
           },
           size: {
             value: { min: 1, max: 5 },
